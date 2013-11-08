@@ -1,10 +1,8 @@
-<div class="hero-unit">
   <h1><%= @player.name %> - <%= @game.name %> (<%= @player.ratings.find_by_game_id(@game).value %>)</h1>
-</div>
 
 <div class="row">
-  <div class="span4">
-    <h2>Head-to-Head Records</h2>
+  <div class="col-lg-4">
+    <h3>Head-to-Head Records</h3>
     <ol>
       <% @game.all_ratings.each do |rating| %>
         <% opponent = rating.player %>
@@ -23,8 +21,8 @@
     </ol>
   </div>
 
-  <div class="span4 offset1">
-    <h2>Recent Games</h2>
+  <div class="col-lg-4 col-lg-offset-1">
+    <h3>Recent Games</h3>
     <% @player.results.for_game(@game).limit(15).order('created_at desc').each do |result| %>
       <li>
         <%= result.created_at.to_s(:short) %>
