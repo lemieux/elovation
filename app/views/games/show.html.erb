@@ -9,7 +9,7 @@
   <h1><%= @game.name %></h1>
 </div>
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-7">
     <h2>Recent Results</h2>
     <% if @game.recent_results.any? %>
       <%= render :partial => 'shared/results', :object => @game.recent_results %>
@@ -17,7 +17,7 @@
       <p>No results, play some games!</p>
     <% end %>
   </div>
-  <div class="col-lg-4">
+  <div class="col-lg-5">
     <h2>Active Ratings</h2>
     <ol>
       <%= render :partial => 'rating', :collection => @game.all_ratings.select(&:active?) %>
