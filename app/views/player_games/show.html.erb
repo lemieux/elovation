@@ -1,5 +1,11 @@
   <h1><%= @player.name %> - <%= @game.name %> (<%= @player.ratings.find_by_game_id(@game).value %>)</h1>
-
+<!--
+<div class="row">
+  <div class="col-lg-12">
+      <div id="score-history" style="height:300px"></div>
+  </div>
+</div>
+-->
 <div class="row">
   <div class="col-lg-4">
     <h3>Head-to-Head Records</h3>
@@ -21,7 +27,7 @@
     </ol>
   </div>
 
-  <div class="col-lg-4 col-lg-offset-1">
+  <div class="col-lg-6 col-lg-offset-2">
     <h3>Recent Games</h3>
     <% @player.results.for_game(@game).limit(15).order('created_at desc').each do |result| %>
       <li>
@@ -43,3 +49,17 @@
     <% end %>
   </div>
 </div>
+
+<!--
+<%= javascript_tag do %>
+  $("#score-history").plot(
+    [
+        1000,
+        <% @player.ratings.first.history_events.reverse().each_with_index do |rating, index| %>
+        [<%= index =%>, <%= rating.value =%>] <% if index + 1 < @player.ratings.first.history_events.size %>,<% end %>
+        <% end %>
+    ],{
+
+    });
+<% end %>
+-->

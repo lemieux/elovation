@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore-min
 //= require bootstrap.min
+//= require jquery.flot
 //= require chosen.jquery.min
 //= require_tree .

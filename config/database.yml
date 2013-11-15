@@ -6,6 +6,8 @@
 development:
   adapter: postgresql
   database: elovation_development
+  username:
+  password:
   host: localhost
   min_messages: WARNING
 
